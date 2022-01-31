@@ -35,6 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  flutter_native_splash: ^2.0.1+1
+  styled_widget: ^0.4.0+3
+  provider: ^6.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -87,3 +91,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color: "#42a5f5"
