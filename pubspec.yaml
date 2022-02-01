@@ -37,8 +37,9 @@ dependencies:
 
   flutter_native_splash: ^2.0.1+1
   styled_widget: ^0.4.0+3
-  provider: ^6.0.2
-
+  beamer: ^1.2.0
+  logger: ^1.1.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
