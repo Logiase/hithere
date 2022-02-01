@@ -29,13 +29,21 @@ class HomePage extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+
+                context.beamToNamed('/settings');
+              },
+            ),
           ],
         ),
       ),
       body: Beamer(
-        routerDelegate: BeamerDelegate(
-            locationBuilder: (routeInformation, _) =>
-                HomeLocation(routeInformation)),
+        routerDelegate: BeamerDelegate(locationBuilder: (routeInformation, _) {
+          return HomeLocation(routeInformation);
+        }),
       ),
     );
   }
