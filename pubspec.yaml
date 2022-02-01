@@ -39,6 +39,8 @@ dependencies:
   styled_widget: ^0.4.0+3
   beamer: ^1.2.0
   logger: ^1.1.0
+  shared_preferences: ^2.0.12
+  sqflite: ^2.0.2
   
 dev_dependencies:
   flutter_test:
