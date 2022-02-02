@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hithere/core/app.dart';
 import 'package:hithere/core/locations.dart';
-import 'package:hithere/providers/settings/settings_provider.dart';
-import 'package:hithere/providers/settings/theme_provider.dart';
+import 'package:hithere/providers/settings/global_settings.dart';
+import 'package:hithere/providers/settings/theme_settings.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,8 +19,8 @@ void main() {
 
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => SettingsProvider()),
-      ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ChangeNotifierProvider(create: (_) => GlobalSettings()),
+      ChangeNotifierProvider(create: (_) => ThemeSettings()),
     ],
     child: HitHereApp(
       routerDelegate: routerDelegate,
