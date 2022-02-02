@@ -1,12 +1,9 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:hithere/providers/settings/settings_provider.dart';
 import 'package:hithere/views/home_page.dart';
 import 'package:hithere/views/schedule_view.dart';
 import 'package:hithere/views/settings_page.dart';
 import 'package:hithere/views/today_view.dart';
-import 'package:provider/provider.dart';
-import 'package:styled_widget/styled_widget.dart';
 
 class RootLocation extends BeamLocation<BeamState> {
   RootLocation(RouteInformation routeInformation) : super(routeInformation);
