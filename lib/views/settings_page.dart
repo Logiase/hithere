@@ -1,6 +1,6 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:hithere/providers/settings/theme_provider.dart';
+import 'package:hithere/providers/settings/theme_settings.dart';
 import 'package:provider/provider.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -24,7 +24,7 @@ class SettingsPage extends StatelessWidget {
   }
 
   Widget _buildSettingsList(BuildContext context) {
-    final ThemeProvider themeProviderRef = Provider.of(context);
+    final ThemeSettings themeProviderRef = Provider.of(context);
 
     return SettingsList(sections: [
       SettingsSection(
@@ -36,7 +36,7 @@ class SettingsPage extends StatelessWidget {
             value: PopupMenuButton<ThemeMode>(
               child: Text(themeProviderRef.themeModeString),
               onSelected: (v) {
-                themeProviderRef.setThemeMode(v);
+                themeProviderRef.themeMode = v;
               },
               itemBuilder: (BuildContext context) => [
                 const PopupMenuItem<ThemeMode>(
@@ -45,6 +45,19 @@ class SettingsPage extends StatelessWidget {
                     child: Text('Light'), value: ThemeMode.light),
                 const PopupMenuItem(child: Text('Dark'), value: ThemeMode.dark),
               ],
+            ),
+          ),
+          SettingsTile(
+            leading: const Icon(Icons.palette),
+            title: const Text('Theme Color'),
+            value: PopupMenuButton<String>(
+              child: Text(themeProviderRef.themeColorString),
+              onSelected: (v) {
+                themeProviderRef.setTheme(v);
+              },
+              itemBuilder: (BuildContext context) => ThemeSettings.mdColors.keys
+                  .map((e) => PopupMenuItem(child: Text(e), value: e))
+                  .toList(),
             ),
           ),
         ],

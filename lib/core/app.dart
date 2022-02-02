@@ -1,10 +1,10 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:hithere/providers/settings/theme_provider.dart';
+import 'package:hithere/providers/settings/theme_settings.dart';
 import 'package:provider/provider.dart';
 
 class HitHereApp extends StatelessWidget {
-  HitHereApp({Key? key, required this.routerDelegate}) : super(key: key);
+  const HitHereApp({Key? key, required this.routerDelegate}) : super(key: key);
 
   final RouterDelegate<Object> routerDelegate;
 
@@ -14,9 +14,9 @@ class HitHereApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       routeInformationParser: BeamerParser(),
       routerDelegate: routerDelegate,
-      themeMode: Provider.of<ThemeProvider>(context).themeMode,
+      themeMode: Provider.of<ThemeSettings>(context).themeMode,
       darkTheme: ThemeData.dark(),
-      theme: ThemeData.light(),
+      theme: Provider.of<ThemeSettings>(context).theme,
     );
   }
 }
