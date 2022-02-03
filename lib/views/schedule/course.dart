@@ -20,6 +20,8 @@ abstract class ScheduleCourse {
   String get room;
 
   String get teacher;
+
+  int get weekday;
 }
 
 class EmptyCourse extends ScheduleCourse {
@@ -38,4 +40,7 @@ class EmptyCourse extends ScheduleCourse {
 
   @override
   String get teacher => '';
+
+  @override
+  int get weekday => 0;
 }

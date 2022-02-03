@@ -6,9 +6,11 @@ import 'package:styled_widget/styled_widget.dart';
 
 class Content extends StatelessWidget {
   final List<String> rowNames;
+  final List<ScheduleCourse> courses;
 
   const Content({
     Key? key,
+    required this.courses,
     required this.rowNames,
   }) : super(key: key);
 
@@ -23,11 +25,13 @@ class Content extends StatelessWidget {
         Times(rowNames: rowNames, height: contentHeight).expanded(flex: 6));
 
     for (int i = 1; i <= 7; i++) {
-      var weekdayCourses = <ScheduleCourse>[];
+      var weekdayCourses =
+          courses.where((course) => course.weekday == i).toList();
       children.add(CourseColumn(
-          height: contentHeight,
-          rowCount: rowNames.length,
-          courses: weekdayCourses).expanded(flex: 7));
+              height: contentHeight,
+              rowCount: rowNames.length,
+              courses: weekdayCourses)
+          .expanded(flex: 7));
     }
 
     return SingleChildScrollView(child: Row(children: children));

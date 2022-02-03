@@ -25,7 +25,10 @@ class Schedule extends StatelessWidget {
         semesterStartDate: semesterStartDate,
         weekNum: weekNum,
       ),
-      Content(rowNames: rowNames).expanded(),
+      Content(
+        rowNames: rowNames,
+        courses: courses,
+      ).expanded(),
     ]).padding(vertical: 5.0);
   }
 }

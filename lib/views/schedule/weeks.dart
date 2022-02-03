@@ -35,8 +35,6 @@ class Weeks extends StatelessWidget {
       weekNum >= 1,
       'weekNum must be greater than or equal to 1',
     );
-
-    print(semesterStartDate);
   }
 
   @override
