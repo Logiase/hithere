@@ -58,9 +58,7 @@ class ThemeSettings extends ChangeNotifier {
     return _themeIndex;
   }
 
-  ThemeSettings() {
-    _load();
-  }
+  ThemeSettings();
 
   Future<void> _initPreferences() async {
     if (_preferencesInitialized) {
@@ -70,7 +68,7 @@ class ThemeSettings extends ChangeNotifier {
     _preferencesInitialized = true;
   }
 
-  void _load() async {
+  Future load() async {
     await _initPreferences();
     switch (_prefs.getInt(_kThemeMode) ?? 0) {
       case 0:
@@ -122,6 +120,7 @@ class ThemeSettings extends ChangeNotifier {
         _themeIndex = '知乎蓝';
         break;
     }
+    notifyListeners();
   }
 
   void _saveThemeMode() async {
