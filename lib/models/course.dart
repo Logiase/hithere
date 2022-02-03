@@ -1,12 +1,20 @@
-class Course {
+import 'package:hithere/views/schedule/course.dart';
+
+class Course extends ScheduleCourse {
   int? id;
+  @override
   String name;
+  @override
   String teacher;
+  @override
+  String room;
   String code;
   String semester;
   List<int> weeks;
   int weekday;
+  @override
   int start;
+  @override
   int step;
   bool selfAdd;
 
@@ -14,6 +22,7 @@ class Course {
     this.id,
     required this.name,
     required this.teacher,
+    required this.room,
     required this.code,
     required this.semester,
     required this.weeks,
@@ -28,6 +37,7 @@ class Course {
       'id': id,
       'name': name,
       'teacher': teacher,
+      'room': room,
       'code': code,
       'semester': semester,
       'weeks': weeks.toString(),
@@ -42,6 +52,7 @@ class Course {
       : id = map['id'] as int?,
         name = map['name'] as String,
         teacher = map['teacher'] as String,
+        room = map['room'] as String,
         code = map['code'] as String,
         semester = map['semester'] as String,
         weeks = (map['weeks'] as String)
@@ -52,21 +63,4 @@ class Course {
         start = map['start'] as int,
         step = map['step'] as int,
         selfAdd = map['selfAdd'] as int == 1;
-}
-
-class CourseTime {
-  int? id;
-
-  List<int> weeks;
-  int weekday;
-  int start;
-  int step;
-
-  CourseTime({
-    this.id,
-    required this.weeks,
-    required this.weekday,
-    required this.start,
-    required this.step,
-  });
 }
