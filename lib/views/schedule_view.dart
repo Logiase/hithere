@@ -9,17 +9,21 @@ class ScheduleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final rowNames = ['', '', '', '', '', '', '', '', '', '', '', ''];
+
     final courseProviderRef = Provider.of<CourseProvider>(context);
 
     DateTime startDate = DateTime.now();
     if (startDate.weekday != DateTime.monday) {
-      startDate = startDate.subtract(Duration(days: startDate.weekday - DateTime.monday));
+      startDate = startDate
+          .subtract(Duration(days: startDate.weekday - DateTime.monday));
     }
 
     return Schedule(
       courses: courseProviderRef.currentWeekCourses,
       weekNum: 1,
       semesterStartDate: startDate,
+      rowNames: rowNames,
     );
   }
 }
