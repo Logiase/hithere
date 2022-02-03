@@ -46,6 +46,7 @@ class HomePage extends StatelessWidget {
           return HomeLocation(routeInformation);
         }),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
 }
