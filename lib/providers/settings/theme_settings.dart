@@ -18,7 +18,7 @@ class ThemeSettings extends ChangeNotifier {
     '古铜棕': Colors.brown,
   };
 
-  late SharedPreferences _preferences;
+  late SharedPreferences _prefs;
   bool _preferencesInitialized = false;
 
   ThemeMode _themeMode = ThemeMode.system;
@@ -66,13 +66,13 @@ class ThemeSettings extends ChangeNotifier {
     if (_preferencesInitialized) {
       return;
     }
-    _preferences = await SharedPreferences.getInstance();
+    _prefs = await SharedPreferences.getInstance();
     _preferencesInitialized = true;
   }
 
   void _load() async {
     await _initPreferences();
-    switch (_preferences.getInt(_kThemeMode) ?? 0) {
+    switch (_prefs.getInt(_kThemeMode) ?? 0) {
       case 0:
         _themeMode = ThemeMode.system;
         break;
@@ -87,7 +87,7 @@ class ThemeSettings extends ChangeNotifier {
         break;
     }
 
-    switch (_preferences.getString(_kThemeIndex) ?? '知乎蓝') {
+    switch (_prefs.getString(_kThemeIndex) ?? '知乎蓝') {
       case '知乎蓝':
         _themeIndex = '知乎蓝';
         break;
@@ -126,11 +126,11 @@ class ThemeSettings extends ChangeNotifier {
 
   void _saveThemeMode() async {
     await _initPreferences();
-    _preferences.setInt(_kThemeMode, _themeMode.index);
+    _prefs.setInt(_kThemeMode, _themeMode.index);
   }
 
   void _saveThemeIndex() async {
     await _initPreferences();
-    _preferences.setString(_kThemeIndex, _themeIndex);
+    _prefs.setString(_kThemeIndex, _themeIndex);
   }
 }
