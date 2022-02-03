@@ -11,6 +11,7 @@ class HitHereApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'HitHere',
       debugShowCheckedModeBanner: true,
       routeInformationParser: BeamerParser(),
       routerDelegate: routerDelegate,

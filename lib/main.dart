@@ -12,9 +12,11 @@ import 'package:provider/provider.dart';
 
 void main() {
   CourseRepository courseRepository = CourseRepository();
+  ThemeSettings themeSettings = ThemeSettings();
 
   FlutterNativeSplash.removeAfter((context) async {
     await courseRepository.open();
+    await themeSettings.load();
   });
 
   final routerDelegate = BeamerDelegate(
@@ -22,12 +24,13 @@ void main() {
       return RootLocation(routeInformation);
     },
     initialPath: '/home',
+    notFoundRedirectNamed: '/home',
   );
 
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => GlobalSettings()),
-      ChangeNotifierProvider(create: (_) => ThemeSettings()),
+      ChangeNotifierProvider(create: (_) => themeSettings),
       ChangeNotifierProvider(
           create: (_) => CourseProvider(
               courseRepository: courseRepository,
