@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:hithere/models/course.dart';
+import 'package:hithere/views/schedule/content.dart';
+import 'package:hithere/views/schedule/course.dart';
 import 'package:hithere/views/schedule/weeks.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 class Schedule extends StatelessWidget {
-  final List<Course> courses;
+  final List<ScheduleCourse> courses;
   final DateTime semesterStartDate;
   final int weekNum;
+  final List<String> rowNames;
 
   const Schedule({
     Key? key,
     required this.courses,
     required this.semesterStartDate,
     required this.weekNum,
+    required this.rowNames,
   }) : super(key: key);
 
   @override
@@ -22,6 +25,7 @@ class Schedule extends StatelessWidget {
         semesterStartDate: semesterStartDate,
         weekNum: weekNum,
       ),
+      Content(rowNames: rowNames).expanded(),
     ]).padding(vertical: 5.0);
   }
 }
