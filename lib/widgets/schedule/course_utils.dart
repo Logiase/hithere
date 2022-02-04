@@ -1,4 +1,4 @@
-import 'package:hithere/views/schedule/course.dart';
+import './course.dart';
 
 abstract class CourseUtils {
   static List<ProcessedCourse> getProcessedCourses(

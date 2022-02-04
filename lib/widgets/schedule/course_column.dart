@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hithere/views/schedule/course.dart';
-import 'package:hithere/views/schedule/course_item.dart';
-import 'package:hithere/views/schedule/course_utils.dart';
+
+import './course.dart';
+import './course_item.dart';
+import './course_utils.dart';
 
 class CourseColumn extends StatelessWidget {
   final double height;

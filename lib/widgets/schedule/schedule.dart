@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hithere/views/schedule/content.dart';
-import 'package:hithere/views/schedule/course.dart';
-import 'package:hithere/views/schedule/weeks.dart';
 import 'package:styled_widget/styled_widget.dart';
+
+import './content.dart';
+import './course.dart';
+import './weeks.dart';
 
 class Schedule extends StatelessWidget {
   final List<ScheduleCourse> courses;

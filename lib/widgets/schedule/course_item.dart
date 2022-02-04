@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:hithere/views/schedule/course.dart';
 import 'package:styled_widget/styled_widget.dart';
+
+import './course.dart';
 
 class CourseItem extends StatelessWidget {
   final List<ScheduleCourse> courses;

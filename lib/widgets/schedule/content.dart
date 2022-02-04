@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hithere/views/schedule/course.dart';
-import 'package:hithere/views/schedule/course_column.dart';
-import 'package:hithere/views/schedule/times.dart';
 import 'package:styled_widget/styled_widget.dart';
+
+import './course.dart';
+import './course_column.dart';
+import './times.dart';
 
 class Content extends StatelessWidget {
   final List<String> rowNames;
