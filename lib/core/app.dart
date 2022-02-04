@@ -1,23 +1,23 @@
-import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:hithere/providers/settings/theme_settings.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:hithere/core/app_pages.dart';
+import 'package:hithere/lang/translation_service.dart';
 
 class HitHereApp extends StatelessWidget {
-  const HitHereApp({Key? key, required this.routerDelegate}) : super(key: key);
-
-  final RouterDelegate<Object> routerDelegate;
+  const HitHereApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'HitHere',
+    return GetMaterialApp.router(
       debugShowCheckedModeBanner: true,
-      routeInformationParser: BeamerParser(),
-      routerDelegate: routerDelegate,
-      themeMode: Provider.of<ThemeSettings>(context).themeMode,
+      enableLog: true,
+      title: 'AppName'.tr,
+      getPages: AppPages.routes,
       darkTheme: ThemeData.dark(),
-      theme: Provider.of<ThemeSettings>(context).theme,
+      themeMode: ThemeMode.system,
+      locale: TranslationService.locale,
+      fallbackLocale: TranslationService.fallbackLocale,
+      translations: TranslationService(),
     );
   }
 }
