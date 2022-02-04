@@ -1,4 +1,4 @@
-import 'package:hithere/views/schedule/course.dart';
+import 'package:hithere/widgets/schedule/course.dart';
 
 class Course extends ScheduleCourse {
   int? id;
@@ -11,6 +11,7 @@ class Course extends ScheduleCourse {
   String code;
   String semester;
   List<int> weeks;
+  @override
   int weekday;
   @override
   int start;
